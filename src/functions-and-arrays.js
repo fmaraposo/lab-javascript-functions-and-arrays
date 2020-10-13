@@ -110,10 +110,10 @@ const wordsUnique = [
 ];
 
 function uniquifyArray (array) {
-  let newArray = [""];
+  let newArray = [];
   for (let i=0; i<array.length; i++) {
     if (array.indexOf(array[i]) === i) {
-      newArray += array[i];
+      newArray.push(array[i]);
     } 
    }
    return newArray;
@@ -122,9 +122,23 @@ function uniquifyArray (array) {
 console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
+//Declare a function named doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist (array,word) {
+  for (let i=0; i<array.length; i++) {
+    if (array[i] === word){
+      console.log(true);
+    }else{
+      console.log(false)
+    }
+   }
+  }
+  doesWordExist(wordsFind, 'machine')
+
 // Iteration #7: Count repetition
+//Declare a function named howManyTimes that will take in an array of words as the first argument, and a word to search for as the second argument. The function will return the number of times that word appears in the array.
+
 const wordsCount = [
   'machine',
   'matter',
@@ -138,7 +152,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(array, word){
+  acc=0;
+for(let i=0; i<array.length;i++){
+if(array[i]=== word){
+  acc++
+}
+}
+return console.log(acc)
+}
 
+howManyTimes(wordsCount,'matter')
 // Iteration #8: Bonus
 
 const matrix = [
