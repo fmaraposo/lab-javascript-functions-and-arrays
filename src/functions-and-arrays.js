@@ -1,11 +1,51 @@
 // Iteration #1: Find the maximum
+  // Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
+
+  function maxOfTwoNumbers (num1, num2) {
+    return Math.max(num1,num2);
+  }
+
+  let maxNumber = maxOfTwoNumbers(1,8);
+  console.log(maxNumber);
 
 // Iteration #2: Find longest word
+//Declare a function named findLongestWord that takes as an argument an array of words and returns the longest one. If there are 2 with the same length, it should return the first occurrence.You can use the following array to test your solution:
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findLongestWord(array) {
+  if (array.length === 0) {
+    return null;
+  }
+
+  let longestWord="";
+  for(let i=0; i<array.length;i++) {
+    if (array[i].length > longestWord.length) {
+      longestWord = array[i];
+    }
+  }
+  console.log(longestWord);
+  return longestWord
+}
+
+let result = findLongestWord(words);
+
+
 // Iteration #3: Calculate the sum
+// Declare a function named sumNumbers that takes an array of numbers as an argument, and returns the sum of all of the numbers in the array. Later in the course we will learn how to do this by using the reduce array method, which will make your work significantly easier. For now, let's practice "declarative" way adding values, using loops.
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers (array) {
+  let sum = 0;
+  for (let i=0; i<array.length; i++){
+    sum += array[i];
+  }
+  return sum
+}
+
+sumNumbers(numbers);
+console.log(sumNumbers(numbers));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
