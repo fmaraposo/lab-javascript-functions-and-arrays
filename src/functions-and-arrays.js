@@ -38,6 +38,11 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers (array) {
   let sum = 0;
+
+  if (array.length === 0) {
+    return 0;
+  }
+
   for (let i=0; i<array.length; i++){
     sum += array[i];
   }
@@ -49,10 +54,44 @@ console.log(sumNumbers(numbers));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
+// Declare a function named averageNumbers that expects an array of numbers and returns the average of the numbers:
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(array) {
+  let average = 0;
+  
+  if (array.length === 0) {
+    return null;
+  }
+
+  for(let i=0; i<array.length; i++) {
+    average += array[i];
+  }
+  return average / array.length
+}
+
+let result4 = averageNumbers(numbersAvg);
+
+console.log(result4);
+
 // Level 2: Array of strings
+// Declare a function named averageWordLength that receives as a single argument an array of words and returns the average length of the words:
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength (array) {
+  let lengthWord = 0;
+
+  if (array.length === 0) {
+    return null
+  }
+
+  for (let i=0; i < array.length; i++) {
+    lengthWord += array[i].length
+  }
+  return lengthWord / array.length;
+}
+  averageWordLength(wordsArr);
+  console.log(averageWordLength(wordsArr));
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
