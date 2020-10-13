@@ -94,6 +94,7 @@ function averageWordLength (array) {
   console.log(averageWordLength(wordsArr));
 
 // Iteration #5: Unique arrays
+// Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out the indexOf Array method. Do this in the form of a function uniquifyArray that receives an array of words as a argument.
 const wordsUnique = [
   'crab',
   'poison',
@@ -107,6 +108,18 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray (array) {
+  let newArray = [""];
+  for (let i=0; i<array.length; i++) {
+    if (array.indexOf(array[i]) === i) {
+      newArray += array[i];
+    } 
+   }
+   return newArray;
+  }
+
+console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
