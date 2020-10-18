@@ -2,7 +2,7 @@
   // Define a function maxOfTwoNumbers that takes two numbers as arguments and returns the largest.
 
   function maxOfTwoNumbers (num1, num2) {
-    return Math.max(num1,num2);
+    return Math.max(num1,num2); /* it returns the largest number of the parameters */
   }
 
   let maxNumber = maxOfTwoNumbers(1,8);
@@ -13,22 +13,32 @@
 
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+
 function findLongestWord(array) {
   if (array.length === 0) {
     return null;
   }
 
-  let longestWord="";
-  for(let i=0; i<array.length;i++) {
-    if (array[i].length > longestWord.length) {
+  let longestWord=""; // we declare the variable that will store the result
+  for(let i=0; i<array.length;i++) { //recorremos el loop en busca de la palabra
+    if (array[i].length > longestWord.length) { // si el elemento que iteramos es mayor que el elemento anterior iterado, que ahora consta en la variable longestWorld, pues en este caso cambiamos el valor de la variable longestWorld para el elemento iterado. 
       longestWord = array[i];
     }
   }
   console.log(longestWord);
-  return longestWord
+  return longestWord;
 }
 
 let result = findLongestWord(words);
+
+//Bonus - Iteration #3.1: A generic sum() function
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+/* sum (array) {
+  if (array.length === 0) {
+    return 0;
+  }
+} */
 
 
 // Iteration #3: Calculate the sum
@@ -37,61 +47,59 @@ let result = findLongestWord(words);
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers (array) {
-  let sum = 0;
-
-  if (array.length === 0) {
+  if(array.length === 0) {
     return 0;
   }
 
-  for (let i=0; i<array.length; i++){
-    sum += array[i];
+  let resultSum = 0;
+  for (let i=0; i<array.length; i++) {
+    resultSum += array[i];
   }
-  return sum
+  console.log(resultSum);
+  return resultSum;
 }
 
 sumNumbers(numbers);
-console.log(sumNumbers(numbers));
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 // Declare a function named averageNumbers that expects an array of numbers and returns the average of the numbers:
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(array) {
-  let average = 0;
-  
+function averageNumbers (array) {
   if (array.length === 0) {
     return null;
-  }
+  } 
 
-  for(let i=0; i<array.length; i++) {
-    average += array[i];
+  let totalSum = 0;
+  for (let i=0; i<array.length; i++) {
+    totalSum += array[i];
   }
-  return average / array.length
+  console.log(totalSum / array.length);
+  return totalSum / array.length;
 }
 
-let result4 = averageNumbers(numbersAvg);
-
-console.log(result4);
+averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 // Declare a function named averageWordLength that receives as a single argument an array of words and returns the average length of the words:
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
+
 function averageWordLength (array) {
-  let lengthWord = 0;
-
   if (array.length === 0) {
-    return null
+    return null;
   }
-
-  for (let i=0; i < array.length; i++) {
-    lengthWord += array[i].length
+  let sumTotal = 0;
+  for(let i=0; i<array.length; i++) {
+    sumTotal += array[i].length;
   }
-  return lengthWord / array.length;
+  console.log(sumTotal / array.length);
+  return sumTotal / array.length;
 }
-  averageWordLength(wordsArr);
-  console.log(averageWordLength(wordsArr));
+
+averageWordLength(wordsArr);
 
 // Iteration #5: Unique arrays
 // Take the following array, remove the duplicates, and return a new array. You are more than likely going to want to check out the indexOf Array method. Do this in the form of a function uniquifyArray that receives an array of words as a argument.
@@ -100,41 +108,50 @@ const wordsUnique = [
   'poison',
   'contagious',
   'simple',
-  'bring',
+/*   'bring', */
   'sharp',
   'playground',
-  'poison',
+  /* 'poison', */
   'communion',
-  'simple',
+ /*  'simple', */
   'bring'
 ];
 
 function uniquifyArray (array) {
+  if (array.length === 0) {
+    return null;
+  }
   let newArray = [];
   for (let i=0; i<array.length; i++) {
     if (array.indexOf(array[i]) === i) {
-      newArray.push(array[i]);
-    } 
-   }
-   return newArray;
+      newArray.push(array[i]); // -> Below is the output from the console.log showed above. The duplicates are where the index doesn’t match the indexOf. 
+      } 
+    }
+    return newArray;
   }
 
 console.log(uniquifyArray(wordsUnique));
 
 // Iteration #6: Find elements
 //Declare a function named doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
+
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist (array,word) {
-  for (let i=0; i<array.length; i++) {
-    if (array[i] === word){
-      console.log(true);
-    }else{
-      console.log(false)
-    }
-   }
+  if (array.length === 0) {
+    return null;
   }
-  doesWordExist(wordsFind, 'machine')
+  for (let i=0; i<=array.length; i++) {
+    if (array.includes(word)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+console.log(doesWordExist(wordsFind,'subset'));
+
 
 // Iteration #7: Count repetition
 //Declare a function named howManyTimes that will take in an array of words as the first argument, and a word to search for as the second argument. The function will return the number of times that word appears in the array.
@@ -152,18 +169,35 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-function howManyTimes(array, word){
-  acc=0;
-for(let i=0; i<array.length;i++){
-if(array[i]=== word){
-  acc++
-}
-}
-return console.log(acc)
+
+function howManyTimes(array,word) {
+  if (array.length === 0) {
+    return 0;
+  }
+  let sumTimes = 0;
+  for (let i=0; i<=array.length; i++) {
+    if (array[i] === word) {
+      sumTimes ++;
+    }
+  }
+  console.log(sumTimes);
+  return sumTimes;
 }
 
-howManyTimes(wordsCount,'matter')
 // Iteration #8: Bonus
+//What is the greatest product of four adjacent numbers? We consider adjacent any four numbers that are next to each other horizontally or vertically.
+
+let newArr = [];
+
+function greteastAdjacentNumbers (array) {
+  let highestResult = 0;
+  for (let i=0; i<array.length-1; i++) {
+    let highestResult= array[i] * array[i+1];
+    newArr.push(highestResult);
+  }
+  return Math.max(newArr);
+}
+
 
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
